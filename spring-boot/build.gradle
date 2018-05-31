@@ -1,0 +1,24 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = "io.pivotal.workshop.Application"
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath group: 'org.springframework.boot', name: 'spring-boot-gradle-plugin', version: '2.0.2.RELEASE', ext: 'pom'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-freemarker:2.0.2.RELEASE'
+    compile 'org.springframework:spring-web:4.3.17.RELEASE'
+    compile 'org.springframework.boot:spring-boot-starter-web:1.5.13.RELEASE'
+
+}

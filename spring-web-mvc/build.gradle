@@ -1,0 +1,40 @@
+group = "io.pivotal.workshop"
+version = "1.0-SNAPSHOT"
+description = """Simple spring app"""
+
+buildscript {
+    repositories {
+        jcenter()
+        // enable this to use snapshot versions of Gretty:
+        // maven { url 'http://oss.jfrog.org/artifactory/oss-snapshot-local' }
+    }
+
+    dependencies {
+        classpath 'org.akhikhl.gretty:gretty:+'
+    }
+}
+
+repositories {
+    jcenter()
+    // enable this to use snapshot versions of Gretty:
+    // maven { url 'http://oss.jfrog.org/artifactory/oss-snapshot-local' }
+    mavenCentral()
+}
+
+apply plugin: 'org.akhikhl.gretty'
+apply plugin: "java"
+apply plugin: 'war'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile "org.springframework:spring-webmvc:4.3.7.RELEASE"
+    compile "org.springframework:spring-context-support:4.3.7.RELEASE"
+    compile "javax.servlet:javax.servlet-api:3.0.1"
+    compile "org.freemarker:freemarker:2.3.23"
+}
+
+gretty {
+    contextPath="/"
+}
